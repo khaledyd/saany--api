@@ -8,9 +8,8 @@ import path from "path";
 const app = express();
 dotenv.config();
 
-mongoose.set('strictQuery', true);
+mongoose.set("strictQuery", true);
 const connect = async () => {
-
   await mongoose
     .connect(process.env.MONG_URL)
     .then(() => {
@@ -28,12 +27,11 @@ app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 
 //if (process.env.NODE_ENV === 'production') {
-  //*Set static folder
-  //app.use(express.static('client/build'));
-  
-  //app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'build','index.html')));
-//}
+//*Set static folder
+//app.use(express.static('client/build'));
 
+//app.get('*', (req,res) => res.sendFile(path.resolve(__dirname, 'client', 'build','index.html')));
+//}
 
 //error handler
 app.use((err, req, res, next) => {
@@ -46,7 +44,9 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(8002, () => {
-  connect();
-  console.log("Connected to Server");
+connect().then(() => {
+  app.listen(8002, () => {
+    connect();
+    console.log("Connected to Server");
+  });
 });
