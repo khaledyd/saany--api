@@ -5,12 +5,9 @@ import userRoutes from "./routes/users.js";
 import authRoutes from "./routes/auth.js";
 import path from "path";
 import cors from "cors";
-import corsOptions from "./config/corsOptions.js"
-
-
+import corsOptions from "./config/corsOptions.js";
 
 const app = express();
-app.use(cors(corsOptions));
 
 dotenv.config();
 
@@ -26,11 +23,23 @@ const connect = async () => {
     });
 };
 
+//cors
+
+var allowlist = ["https://saanyo.onrender.com"];
+var corsOptionsDelegate = function (req, callback) {
+  var corsOptions;
+  if (allowlist.indexOf(req.header("Origin")) !== -1) {
+    corsOptions = { origin: true }; // reflect (enable) the requested origin in the CORS response
+  } else {
+    corsOptions = { origin: false }; // disable CORS for this request
+  }
+  callback(null, corsOptions); // callback expects two parameters: error and options
+};
 //middlewares
 
 app.use(express.json());
-app.use("/api/auth", authRoutes);
-app.use("/api/users", userRoutes);
+app.use("/api/auth", cors(corsOptionsDelegate), authRoutes);
+app.use("/api/users", cors(corsOptionsDelegate), userRoutes);
 
 //if (process.env.NODE_ENV === 'production') {
 //*Set static folder

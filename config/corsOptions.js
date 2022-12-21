@@ -8,6 +8,7 @@ import  allowedOrigins from './allowedOrigins.js'
             callback(new Error('Not allowed by CORS'))
         }
     },
-
+    credentials: true,
+    optionsSuccessStatus: 200
 }
 export default corsOptions
