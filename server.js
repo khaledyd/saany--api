@@ -10,6 +10,7 @@ import corsOptions from "./config/corsOptions.js";
 const app = express();
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "https://saanyo.onrender.com");
+  res.header("Access-Control-Allow-Credentials", "true");
   next();
 });
 
