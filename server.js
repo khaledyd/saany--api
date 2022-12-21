@@ -6,6 +6,7 @@ import authRoutes from "./routes/auth.js";
 import path from "path";
 import cors from "cors";
 import corsOptions from "./config/corsOptions.js";
+import cookieParser from "cookie-parser"
 
 const app = express();
 app.use((req, res, next) => {
