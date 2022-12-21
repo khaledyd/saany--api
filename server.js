@@ -5,7 +5,7 @@ import userRoutes from "./routes/users.js";
 import authRoutes from "./routes/auth.js";
 import path from "path";
 import cors from "cors";
-import {corsOptions} from "./config/corsOptions.js"
+import corsOptions from "./config/corsOptions.js"
 
 
 

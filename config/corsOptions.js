@@ -1,6 +1,6 @@
-import  {allowedOrigins} from './allowedOrigins.js'
+import  allowedOrigins from './allowedOrigins.js'
 
-export const corsOptions = {
+ const corsOptions = {
     origin: (origin, callback) => {
         if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
             callback(null, true)
@@ -11,4 +11,4 @@ export const corsOptions = {
     credentials: true,
     optionsSuccessStatus: 200
 }
-
+export default corsOptions
