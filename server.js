@@ -14,6 +14,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(cookieParser());
+
 app.use(
   cors({
     origin: "https://saanyo.onrender.com",
