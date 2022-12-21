@@ -1,6 +1,10 @@
 
 
-export const  allowedOrigins = [
- 'https://saanyo.onrender.com/'
+
+
+const allowedOrigins = [
+   'https://saanyo.onrender.com'
 ]
+
+export default allowedOrigins
 
