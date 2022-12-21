@@ -30,7 +30,7 @@ router.get("/find/:id", getUser);
 router.post("/createorder/:id",  crateOrder);
 
 //make purchase
-router.put("/buysomethingnow/:id", verifyToken, buysomethingnow);
+router.put("/buysomethingnow/:id", buysomethingnow);
 
 //send money
 router.put("/sendMoney/:id", sendMoney);
