@@ -27,7 +27,7 @@ router.get("/find/:id", getUser);
 
 
 //create Order 
-router.post("/createorder/:id", verifyToken, crateOrder);
+router.post("/createorder/:id",  crateOrder);
 
 //make purchase
 router.put("/buysomethingnow/:id", verifyToken, buysomethingnow);
