@@ -4,8 +4,14 @@ import dotenv from "dotenv";
 import userRoutes from "./routes/users.js";
 import authRoutes from "./routes/auth.js";
 import path from "path";
+import cors from "cors";
+import {corsOptions} from "./config/corsOptions.js"
+
+
 
 const app = express();
+app.use(cors(corsOptions));
+
 dotenv.config();
 
 mongoose.set("strictQuery", true);
