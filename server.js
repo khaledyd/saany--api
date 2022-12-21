@@ -5,15 +5,20 @@ import userRoutes from "./routes/users.js";
 import authRoutes from "./routes/auth.js";
 import path from "path";
 import cors from "cors";
-import corsOptions  from "./config/corsOptions.js";
+import corsOptions from "./config/corsOptions.js";
 
 const app = express();
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "https://saanyo.onrender.com");
+  next();
+});
+
 app.use(
   cors({
-    origin:    'https://saanyo.onrender.com',
-    methods: ["GET", "POST" , "PUT", "DELETE" ],
+    origin: "https://saanyo.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true
+    credentials: true,
   })
 );
 
