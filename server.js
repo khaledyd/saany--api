@@ -5,12 +5,11 @@ import userRoutes from "./routes/users.js";
 import authRoutes from "./routes/auth.js";
 import path from "path";
 import cors from "cors";
-import corsOptions from "./config/corsOptions.js";
 import cookieParser from "cookie-parser";
 
 const app = express();
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://saanyoapp.netlify.app/");
+  res.header("Access-Control-Allow-Origin", "https://saanyoapp.netlify.app");
   res.header("Access-Control-Allow-Credentials", "true");
   next();
 });
@@ -19,7 +18,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "https://saanyoapp.netlify.app/",
+    origin: "https://saanyoapp.netlify.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
