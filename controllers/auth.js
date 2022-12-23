@@ -92,7 +92,7 @@ export const SendOtb = async (req, res) => {
   if (!userExists)
     return res.status(400).send({ message: "email not registered" });
 
-  console.log(userExists.email);
+
 
   // Delete previous OTP codes;
   const previousOTPs = await Otbcode.find({ email: email });
@@ -100,7 +100,7 @@ export const SendOtb = async (req, res) => {
   for (let previousOTP of previousOTPs) {
     Otbcode.findOneAndDelete(email, function (err, result) {
       if (err) {
-        console.log(err);
+      
       }
     });
   }
@@ -112,7 +112,7 @@ export const SendOtb = async (req, res) => {
     });
     sendEmail(generatedOTP, userExists.email);
   } catch (error) {
-    console.log(error);
+  
   }
   return res.status(200).send({ message: "OTP Sent" });
 };
@@ -139,7 +139,7 @@ function sendEmail(code, receiver) {
 
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
-      console.log(error);
+     
     }
   });
 }
