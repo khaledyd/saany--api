@@ -43,6 +43,6 @@ router.get("/getorderbyid/:id", getorderbyid);
 
 //latest transections
 
-router.get("/latesttrasections/:id", verifyToken, latesttrasections);
+router.get("/latesttrasections/:id", latesttrasections);
 
 export default router;

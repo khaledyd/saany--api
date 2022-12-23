@@ -18,7 +18,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "https://saanyoapp.netlify.app",
+    origin: ["https://saanyoapp.netlify.app", "http://localhost:3000"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
